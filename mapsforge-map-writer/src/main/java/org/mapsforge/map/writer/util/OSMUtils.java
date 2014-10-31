@@ -109,6 +109,8 @@ public final class OSMUtils {
 					housenumber = tag.getValue();
 				} else if ("number".equals(key)) {
 					housenumber = tag.getValue();
+				} else if ("pasport".equals(key)) {
+					housenumber = tag.getValue();
 				} else if ("ref".equals(key)) {
 					ref = tag.getValue();
 				} else if ("layer".equals(key)) {
