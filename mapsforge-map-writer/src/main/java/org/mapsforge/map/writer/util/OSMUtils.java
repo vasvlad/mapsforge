@@ -105,11 +105,13 @@ public final class OSMUtils {
 					name = tag.getValue();
 				} else if ("piste:name".equals(key) && name == null) {
 					name = tag.getValue();
-				} else if ("addr:housenumber".equals(key)) {
+				} else if ("length".equals(key)) {
 					housenumber = tag.getValue();
 				} else if ("number".equals(key)) {
 					housenumber = tag.getValue();
 				} else if ("pasport".equals(key)) {
+					housenumber = tag.getValue();
+                                } else if ("addr:housenumber".equals(key)) {
 					housenumber = tag.getValue();
 				} else if ("ref".equals(key)) {
 					ref = tag.getValue();
