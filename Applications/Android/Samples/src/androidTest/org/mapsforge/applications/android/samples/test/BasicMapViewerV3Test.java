@@ -1,18 +1,18 @@
 package org.mapsforge.applications.android.samples.test;
 
-import org.mapsforge.applications.android.samples.BasicMapViewerXml;
+import org.mapsforge.applications.android.samples.BasicMapViewerV3;
 
 import android.test.ActivityInstrumentationTestCase2;
 
-import com.jayway.android.robotium.solo.Solo;
+import com.robotium.solo.Solo;
 
-public class BasicMapViewerXmlTest extends ActivityInstrumentationTestCase2<BasicMapViewerXml> {
+public class BasicMapViewerV3Test extends ActivityInstrumentationTestCase2<BasicMapViewerV3> {
 
 	Solo solo;
 	final static int iterations = TestUtils.iterations;
 
-	public BasicMapViewerXmlTest() {
-		super(BasicMapViewerXml.class);
+	public BasicMapViewerV3Test() {
+		super(BasicMapViewerV3.class);
 	}
 
 	public void setUp() throws Exception {
@@ -33,18 +33,6 @@ public class BasicMapViewerXmlTest extends ActivityInstrumentationTestCase2<Basi
 
 	public void testScrollWithoutRotation() throws Exception {
 		TestUtils.testScrollWithoutRotation(this.solo, this.iterations);
-	}
-
-	public void testZoom() throws Exception {
-		TestUtils.testZoom(this.solo, this.iterations);
-	}
-
-	public void testZoomChanges() throws Exception {
-		TestUtils.testZoomChanges(this.solo, this.iterations);
-	}
-
-	public void testSetPositionAndZoom() throws Exception {
-		TestUtils.testPositionAndZoom(this.solo, this.iterations);
 	}
 
 	@Override

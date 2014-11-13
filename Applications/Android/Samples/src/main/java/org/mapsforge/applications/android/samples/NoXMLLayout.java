@@ -1,5 +1,5 @@
 /*
- * Copyright 2013-2014 Ludwig M Brinckmann
+ * Copyright 2010, 2011, 2012, 2013 mapsforge.org
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -14,26 +14,28 @@
  */
 package org.mapsforge.applications.android.samples;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-
-import org.mapsforge.map.rendertheme.ExternalRenderTheme;
+import org.mapsforge.map.android.view.MapView;
 
 /**
- * Combining an external render theme file with the jar-embedded resources of
- * the internal osmarender style.
+ * A simple activity that illustrates that an XML layout file is not really needed
+ * for the most simple map activities.
  */
+public class NoXMLLayout extends RenderTheme4 {
 
-class ExternalRenderThemeUsingJarResources extends ExternalRenderTheme {
-
-	public ExternalRenderThemeUsingJarResources(File renderThemeFile)
-			throws FileNotFoundException {
-		super(renderThemeFile);
+	/**
+	 * In this class we instantiate the MapView directly using this class,
+	 * without using an XML layout file.
+	 * @return
+	 */
+	@Override
+	protected MapView getMapView() {
+		MapView mv = new MapView(this);
+		setContentView(mv);
+		return mv;
 	}
 
 	@Override
-	public String getRelativePathPrefix() {
-		return "/osmarender/";
+	public void setContentView() {
+		// no-op, we have already set the map view in getMapView()
 	}
-
 }

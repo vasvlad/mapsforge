@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 Ludwig M Brinckmann
+ * Copyright 2013-2014 Ludwig M Brinckmann
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -12,25 +12,28 @@
  * You should have received a copy of the GNU Lesser General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mapsforge.applications.android.samples;
+package org.mapsforge.map.android.util;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+
+import org.mapsforge.map.rendertheme.ExternalRenderTheme;
 
 /**
- * Viewer that illustrated the use of SVG textures.
- * 
- * @author Ludwig M Brinckmann
+ * Combining an external render theme file with the jar-embedded resources of
+ * the internal osmarender style.
  */
-public class SVGTextures extends AssetsRenderThemeMapViewer {
 
-	@Override
-	protected void createMapViews() {
-		super.createMapViews();
-		this.mapViews.get(0).getModel().displayModel.setTileSizeMultiple(64);
+public class ExternalRenderThemeUsingJarResources extends ExternalRenderTheme {
+
+	public ExternalRenderThemeUsingJarResources(File renderThemeFile)
+			throws FileNotFoundException {
+		super(renderThemeFile);
 	}
 
 	@Override
-	protected String getRenderThemeFile() {
-		return "renderthemes/svgtextures.xml";
+	public String getRelativePathPrefix() {
+		return "/osmarender/";
 	}
-
 
 }

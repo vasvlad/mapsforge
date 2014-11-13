@@ -1,5 +1,6 @@
 /*
  * Copyright 2010, 2011, 2012, 2013 mapsforge.org
+ * Copyright 2014 Ludwig M Brinckmann
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -12,16 +13,21 @@
  * You should have received a copy of the GNU Lesser General Public License along with
  * this program. If not, see <http://www.gnu.org/licenses/>.
  */
-package org.mapsforge.applications.android.samples;
+package org.mapsforge.map.android.util;
 
 import org.mapsforge.map.model.MapViewPosition;
 import org.mapsforge.map.model.common.Observer;
 
-class MapViewPositionObserver implements Observer {
+/**
+ * A utility method that ties two map view positions together: if the center or the zoom level
+ * of the observable changes, the observer changes as well. This is useful if you have two
+ * map views where one is supposed to follow the other.
+ */
+public class MapViewPositionObserver implements Observer {
 	private final MapViewPosition observable;
 	private final MapViewPosition observer;
 
-	MapViewPositionObserver(MapViewPosition observable, MapViewPosition observer) {
+	public MapViewPositionObserver(MapViewPosition observable, MapViewPosition observer) {
 		this.observable = observable;
 		this.observer = observer;
 		observable.addObserver(this);
@@ -46,7 +52,7 @@ class MapViewPositionObserver implements Observer {
 		}
 	}
 
-	void removeObserver() {
+	public void removeObserver() {
 		this.observable.removeObserver(this);
 	}
 }

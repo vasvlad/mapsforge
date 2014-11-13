@@ -1,5 +1,7 @@
 /*
- * Copyright 2013-2014 Ludwig M Brinckmann
+ * Copyright 2010, 2011, 2012, 2013 mapsforge.org
+ * Copyright © 2013-2014 Ludwig M Brinckmann
+ * Copyright © 2014 devemux86
  *
  * This program is free software: you can redistribute it and/or modify it under the
  * terms of the GNU Lesser General Public License as published by the Free Software
@@ -14,15 +16,17 @@
  */
 package org.mapsforge.applications.android.samples;
 
+import org.mapsforge.map.rendertheme.InternalRenderTheme;
+import org.mapsforge.map.rendertheme.XmlRenderTheme;
+
 /**
- * Viewer that demonstrates the use of SVG based symbols in rendertheme file.
- * 
+ * Usage of deprecated osmarender rendertheme (V3).
  */
-public class SVGAssetsRenderThemeMapViewer extends AssetsRenderThemeMapViewer {
+public class BasicMapViewerV3 extends SamplesBaseActivity {
 
 	@Override
-	protected String getRenderThemeFile() {
-		return "renderthemes/assetssvg.xml";
+	protected XmlRenderTheme getRenderTheme() {
+		return InternalRenderTheme.OSMARENDER;
 	}
 
 }
