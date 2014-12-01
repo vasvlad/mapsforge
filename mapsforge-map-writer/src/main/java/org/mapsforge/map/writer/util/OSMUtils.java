@@ -105,6 +105,8 @@ public final class OSMUtils {
 					name = tag.getValue();
 				} else if ("piste:name".equals(key) && name == null) {
 					name = tag.getValue();
+				} else if ("diameter".equals(key)) {
+					name = tag.getValue();
 				} else if ("length".equals(key)) {
 					housenumber = tag.getValue();
 				} else if ("number".equals(key)) {
